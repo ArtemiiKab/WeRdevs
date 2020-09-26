@@ -1,0 +1,56 @@
+.Popup {
+  &__shadow{
+    position: absolute;
+    top:0;
+    left:0;
+    display:block;
+    width: 100vw;
+    height:100%;
+    background-color: #272829;
+    opacity: 0.85;
+    z-index:2;
+  }
+
+  &__container{
+    position:absolute;
+    top:60%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    display:flex;
+    flex-direction: column;
+    align-items:flex-end;
+    background-color: #FBFBFB;
+    opacity:1;
+    z-index:3;
+  }
+
+  &__btn {
+    width:28px;
+    height:28px;
+    background-color: #fdd000;
+    border:none;
+  }
+
+  &__labels {
+    display:flex;
+    padding:0 28px 25px;
+  }
+
+  &__label-box {
+    display:flex;
+    flex-direction: column;
+    margin-right: 20px;
+  }
+
+  &__label-box label {
+    color:#A2A2A2;
+    margin-bottom: 8px;
+  }
+
+  &__label-box input {
+    display:inline-block;
+    border: 1px solid #FDD000;
+    padding:14px 20px;
+  }
+
+}
