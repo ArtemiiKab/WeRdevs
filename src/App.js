@@ -9,8 +9,9 @@ import './App.scss';
 function App() {
   return (
     <div className="App">
-      <Header />
+      
       <HashRouter>
+      <Header />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" exact component={About} />

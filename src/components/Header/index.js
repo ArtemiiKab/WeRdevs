@@ -1,4 +1,6 @@
 import React from 'react';
+import {NavLink, } from 'react-router-dom';
+
 import './header.scss';
 
 export default function Header() {
@@ -11,10 +13,11 @@ export default function Header() {
             className="header__logo"
           />
         </div>
+
           <nav className="Nav">
             <ul className="Nav__list">
-              <li className="Nav__item"><a href="/">HOME</a></li>
-              <li className="Nav__item"><a href="#/about">ABOUT US</a></li>
+              <li className="Nav__item"><NavLink to="/">HOME</NavLink></li>
+              <li className="Nav__item"><NavLink to="/about">ABOUT US</NavLink></li>
             </ul>
           </nav>
     </header>
