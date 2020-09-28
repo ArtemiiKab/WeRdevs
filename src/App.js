@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, BrowserRouter, Switch} from 'react-router-dom';
+import {Route, HashRouter, Switch} from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Header from './components/Header';
@@ -10,12 +10,12 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <BrowserRouter>
+      <HashRouter>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" exact component={About} />
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
