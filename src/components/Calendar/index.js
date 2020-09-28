@@ -1,10 +1,14 @@
 import React, {useState, useEffect} from 'react';
+import {useDispatch} from 'react-redux';
+import {sendData } from '../../actions';
+import classNames from 'classnames';
 import './calendar.scss';
 
-
-export default function Calendar({setClicked, setDateInPopup}){
+export default function Calendar(){
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  
+  const dispatch = useDispatch();
 
   const [month, setMonth]= useState(months[new Date().getMonth()]);
   const [year, setYear] = useState(new Date().getFullYear());
@@ -41,33 +45,40 @@ export default function Calendar({setClicked, setDateInPopup}){
   function createCalendar(year, month) {
     const result =[];
     const date = new Date(year, month);
-    let day =1;
-    let nextMonthDay = 1
     const monthStart = date.getDay();
-    let lastMonthDay = -monthStart+1;
-
     const daysInMonth = new Date(year, month+1, 0).getDate();
 
-    for(let i=0; i < (daysInMonth+monthStart)/days.length; i++){
-       result[i] = [];
+    let lastMonthDay = -monthStart+1;
+    let day =1;
+    let nextMonthDay = 1
 
-       for(let j=0; j<days.length; j++) {
-          if((i===0 && j < monthStart)){
-            result[i][j] = [false, new Date(year, month, lastMonthDay++)];
-          } else if(day > daysInMonth){
-            result[i][j] = [false, new Date(year, month+2, nextMonthDay++)];
-          } else {
+    for(let i = 0; i < (daysInMonth+monthStart)/days.length; i++){
+      result[i] = [];
+
+      for(let j = 0; j < days.length; j++) {
+        if((i === 0 && j < monthStart)){
+          result[i][j] = [false, new Date(year, month, lastMonthDay++)];
+        } else if(day > daysInMonth){
+          result[i][j] = [false, new Date(year, month+2, nextMonthDay++)];
+        } else if(new Date().getDate() === day
+          && month === new Date().getMonth()
+          && year === new Date().getFullYear()) {
+            result[i][j] = ['today', new Date(year, month, day++)]
+        } else {
             result[i][j] = [true, new Date(year, month, day++)]
-          }
-       }
+        }
+      }
     }
 
     return result;
   }
 
   function handleDayClick(dateObj){
-    setClicked(true);
-    setDateInPopup([dateObj.getDate(), months[dateObj.getMonth()], days[dateObj.getDay()]]);
+    dispatch(sendData([
+      dateObj.getDate(),
+      months[dateObj.getMonth()],
+      days[dateObj.getDay()]
+    ])); 
   }
 
   return (
@@ -90,11 +101,20 @@ export default function Calendar({setClicked, setDateInPopup}){
         <table className="Calendar__table">
             <tbody className="Calendar__tbody">
                 {calendar.map((w, i) => 
-                  <tr key={i+'week'}>
-                    {w.map(d => d[0] ?
-                    <td onClick={()=>handleDayClick(d[1])}>{d[1].getDate()}</td> 
-                    :
-                    <td className="Calendar__greyDay">{d[1].getDate()}</td>)}
+                  <tr key={i + 'week'}>
+                    {w.map((d, i2) =>
+                    <td
+                      onClick={()=>handleDayClick(d[1])}
+                      className={classNames({
+                        Calendar__day: true,
+                        Calendar__greyDay:!d[0],
+                        Calendar__today:d[0]==='today',
+                      })}
+                      key={i2 + 'day'}
+                    >
+                      {d[1].getDate()}
+                    </td> 
+                    )}
                   </tr>)}
             </tbody>
             <thead className="Calendar__thead">

@@ -4,19 +4,18 @@ import Home from './components/Home';
 import About from './components/About';
 import Header from './components/Header';
 
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
     <div className="App">
-     <Header />
-     <BrowserRouter>
-          <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/about" exact component={About} />
-          </Switch>
-        </BrowserRouter>
-      
+      <Header />
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/about" exact component={About} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }

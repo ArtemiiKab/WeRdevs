@@ -3,11 +3,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
   margin-left:32px;
-  padding:0 15%;
+  padding:10% 15%;
+ 
   background-color: #272829;
   color:#DFDFDF;
-  height:90vh;
+  height:72vh;
  
   &__header{
     display:flex;
@@ -34,8 +36,8 @@
 
   &__tbody{
     display: block;
-    border-bottom: 1px solid #DFDFDF;
     border-top: 1px solid #DFDFDF;
+    padding-top:38px;
   }
 
   &__thead{
@@ -49,20 +51,45 @@
     font-size:19px;
     font-weight:500;
     padding:16px 0;
+    margin-top:38px;
     border-bottom: 1px solid #DFDFDF;
+    border-top: 1px solid #DFDFDF;
   }
 
   &__tbody tr {
     display:grid;
     grid-template-columns: repeat(7, 1fr);
-    text-align: center;
     font-size:17px;
     font-weight:500;
-    padding:16px 0;
+  }
+
+  &__day {
+    display:block;
+    padding:12px;
+    cursor: pointer;
+    text-align: center;
+    &:hover{
+      background-color:#353536 ;
+      color:#DFDFDF;
+    }
   }
 
   &__greyDay {
     opacity:0.24;
   }
 
+  &__today {
+    background-color:#fdd000;
+    color:#272829;
+  }
+
+  @media(max-width: 1100px){
+    height:auto;
+    margin-left: 0;
+  }
+
+  @media(max-width:900px){
+    padding:10% 5%;
+    min-width:300px;
+  }
 }

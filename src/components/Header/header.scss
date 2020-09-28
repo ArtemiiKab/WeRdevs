@@ -2,22 +2,31 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding:1.5rem 5%;
+  padding: 0 5%;
 
-    &__logo {
-      width:165px;
-      height: 50px;
-    }
+  &__logo {
+    width:165px;
+    height: 50px;
+    margin:0;
+  }
 }
 
 .Nav {
   &__list {
     display:flex;
     list-style: none;
+    padding:0;
   }
 
   &__item {
+    display:block;
+    padding:20px 0;
     margin-left:70px;
+    cursor: pointer;
+    transition: 0.5s;
+    &:hover{
+      transform:translateY(-5px);
+    }
 
     & a {
       font-size: 24px;
@@ -25,7 +34,17 @@
       letter-spacing: 0.56px;
       text-decoration: none;
       color: #3d3d3d;
+    }
+  }
 
+  @media(max-width: 600px){
+
+    &__item {
+      margin-left:10%;
+    }
+
+    &__item a {
+      font-size: 18px;  
     }
   }
 }
