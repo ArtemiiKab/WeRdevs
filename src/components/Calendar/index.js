@@ -74,11 +74,13 @@ export default function Calendar(){
   }
 
   function handleDayClick(dateObj){
+
     dispatch(sendData([
       dateObj.getDate(),
       months[dateObj.getMonth()],
       days[dateObj.getDay()]
     ])); 
+
   }
 
   return (
