@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/WeRdevs/static/css/main.a6dc84cd.chunk.css",
+    "main.js": "/WeRdevs/static/js/main.cc106b64.chunk.js",
+    "main.js.map": "/WeRdevs/static/js/main.cc106b64.chunk.js.map",
+    "runtime-main.js": "/WeRdevs/static/js/runtime-main.639125ca.js",
+    "runtime-main.js.map": "/WeRdevs/static/js/runtime-main.639125ca.js.map",
+    "static/js/2.7abbd222.chunk.js": "/WeRdevs/static/js/2.7abbd222.chunk.js",
+    "static/js/2.7abbd222.chunk.js.map": "/WeRdevs/static/js/2.7abbd222.chunk.js.map",
+    "index.html": "/WeRdevs/index.html",
+    "precache-manifest.cf7158c26531bb9d891f80ff1ea3d96b.js": "/WeRdevs/precache-manifest.cf7158c26531bb9d891f80ff1ea3d96b.js",
+    "service-worker.js": "/WeRdevs/service-worker.js",
+    "static/css/main.a6dc84cd.chunk.css.map": "/WeRdevs/static/css/main.a6dc84cd.chunk.css.map",
+    "static/js/2.7abbd222.chunk.js.LICENSE.txt": "/WeRdevs/static/js/2.7abbd222.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.639125ca.js",
+    "static/js/2.7abbd222.chunk.js",
+    "static/css/main.a6dc84cd.chunk.css",
+    "static/js/main.cc106b64.chunk.js"
+  ]
+}
